@@ -1,2 +1,2 @@
 export { default as Button } from './button/index';
-export { default as Pen } from './pen/pen';
+export { default as Pen } from './pen/index';
