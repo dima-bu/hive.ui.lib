@@ -1,24 +1,25 @@
 import React from 'react';
-import Radium from 'radium';
+import injectSheet from 'react-jss';
 
 const styles = {
   primary: {
     background: '#0074D9',
-    fontSize: '16px'
+    fontSize: '16px',
   },
 };
 
-@Radium
+
 class Button extends React.Component {
   render() {
+    const {classes, children} = this.props;
     return (
       <button
         onClick={this.props.onClick}
-        style={[styles.primary]}
+        className={classes.primary}
       >
-        {this.props.children}
+        {children}
       </button>
-    )
+    );
   }
 }
 
@@ -28,4 +29,4 @@ Button.propTypes = {
   onClick: React.PropTypes.func,
 };
 
-export default Button;
+export default injectSheet(styles)(Button);

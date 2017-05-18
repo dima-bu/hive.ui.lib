@@ -1,21 +1,21 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'react-icon-base';
-import Radium from 'radium';
+import injectSheet from 'react-jss';
 
 const styles = {
   md: {
     height: '16px',
-    width: '16px'
+    width: '16px',
   },
 };
 
-@Radium
-class Pen extends Component {
 
-  render () {
+class Pen extends Component {
+  render() {
+    const {classes, children} = this.props;
     return (
-      <Icon viewBox='0 0 17 17' style={[styles.md]} >
+      <Icon viewBox='0 0 17 17' className={classes.md} >
         <path d='M16.4,4.1l-3.5-3.5c-0.8-0.8-2.1-0.8-2.8,0L1.6,9.1l-1.4,7.1l0.7,
         0.7l7.1-1.4l8.5-8.5C17.2,6.2,17.2,4.9,16.4,4.1z
         M6.9,13.6l-4.4,0.9l0.9-4.4L11.5,2L15,5.5L6.9,13.6z' />
@@ -27,4 +27,4 @@ class Pen extends Component {
   }
 };
 
-export default Pen;
+export default injectSheet(styles)(Pen);
